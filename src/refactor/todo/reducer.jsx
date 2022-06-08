@@ -11,7 +11,7 @@ export const reducer = (store ,{type , payload}) =>{
         case SORT:return{...store,
             todos:[...store.todos].sort((a , b)=>a[payload] < b[payload] ? 1 : a[payload] > b[payload] ?  -1 : 0)}
         case Toggle:return{...store ,todos:[{...payload,status:!payload.status}]}   
-        case EDIT:return{...store , todos:[{id:store.todos.length,title:payload}]}
+        case EDIT:return{...store , todos:[{id:payload.id , title:payload.input_data}]}
 
         default:return store
     }
